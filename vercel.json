@@ -1,4 +1,8 @@
 {
+  "buildCommand": "yarn deploy",
+  "devCommand": "yarn dev",
+  "installCommand": "yarn",
+  "framework": null,
   "builds": [
     {
       "src": "vite.config.js",
