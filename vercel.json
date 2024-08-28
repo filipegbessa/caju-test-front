@@ -3,27 +3,5 @@
   "devCommand": "yarn dev",
   "installCommand": "yarn",
   "framework": null,
-  "builds": [
-    {
-      "src": "vite.config.js",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
-    },
-    { "src": "storybook-static/**", "use": "@vercel/static" },
-    { "src": "coverage/**", "use": "@vercel/static" }
-  ],
-  "routes": [
-    {
-      "src": "/storybook/(.*)",
-      "dest": "/storybook-static/$1"
-    },
-    {
-      "src": "/coverage/(.*)",
-      "dest": "/coverage/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/dist/$1"
-    }
-  ]
+  "outputDirectory": "./dist"
 }
