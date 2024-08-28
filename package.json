@@ -8,13 +8,16 @@
     "init:db": "json-server --watch db.json",
     "build": "tsc && vite build",
     "test:dev": "jest --watch --verbose --no-cache",
-    "test:build": "jest --coverage --no-cache",
+    "test:coverage": "jest --coverage --no-cache",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy": "yarn build && yarn build-storybook && yarn test:coverage && vercel --prod",
+    "deploy:storybook": "yarn build-storybook && vercel --prod -t storybook",
+    "deploy:coverage": "yarn test:coverage && vercel --prod -t coverage"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",

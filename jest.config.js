@@ -10,5 +10,7 @@ export default {
   moduleNameMapper: {
     '^~/(.+)': '<rootDir>/src/$1',
   },
+  collectCoverage: true,
+  coverageDirectory: 'coverage',
   //   setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
 };
