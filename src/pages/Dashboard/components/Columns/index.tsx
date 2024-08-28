@@ -18,21 +18,25 @@ const Collumns = ({ registrations, loading }: CollumnsProps) => {
       {allColumns.map((collum) => {
         return (
           <S.Column status={collum.status} key={collum.title}>
-            <>
-              <S.TitleColumn status={collum.status}>
-                {collum.title}
-              </S.TitleColumn>
-              <S.CollumContent>
-                {registrations?.map((registration) => {
-                  return (
-                    <RegistrationCard
-                      data={registration}
-                      key={registration.id}
-                    />
-                  );
-                })}
-              </S.CollumContent>
-            </>
+            {loading ? (
+              <p>Loading...</p>
+            ) : (
+              <>
+                <S.TitleColumn status={collum.status}>
+                  {collum.title}
+                </S.TitleColumn>
+                <S.CollumContent>
+                  {registrations?.map((registration) => {
+                    return (
+                      <RegistrationCard
+                        data={registration}
+                        key={registration.id}
+                      />
+                    );
+                  })}
+                </S.CollumContent>
+              </>
+            )}
           </S.Column>
         );
       })}

@@ -1,33 +1,50 @@
-import styled from 'styled-components';
+import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react';
+import classNames from 'classnames';
 
-const Button = styled.button`
-  outline: none;
-  display: flex;
-  align-items: center;
-  border: none;
-  border-radius: 36px;
-  padding: 8px 32px;
-  background-color: #64a98c;
-  cursor: pointer;
-  height: 56px;
-  color: #fff;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  font-size: 16px;
-  font-weight: 600;
-`;
+export type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'review'
+  | 'approved'
+  | 'reproved';
 
-export const ButtonSmall = styled.button<{
-  bgcolor?: string;
-  color?: string;
-}>`
-  font-size: 12px;
-  outline: none;
-  border-radius: 4px;
-  border: none;
-  padding: 4px 16px;
-  background-color: ${(props) => props.bgcolor ?? 'none'};
-  color: ${(props) => props.color ?? '#000'};
-  cursor: pointer;
-`;
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  title?: string;
+  size?: ButtonSize;
+  variant?: ButtonVariant;
+  children?: ReactNode;
+}
 
-export default Button;
+const sizeClasses = {
+  small: 'py-1 px-3 text-sm',
+  medium: 'py-2 px-4 text-base',
+  large: 'py-3 px-6 text-lg',
+};
+
+const variantClasses = {
+  primary: 'bg-green-500 text-white hover:bg-green-600',
+  secondary: 'bg-gray-500 text-white hover:bg-gray-600',
+  review: 'bg-review text-white hover:bg-review',
+  approved: 'bg-approved text-white hover:bg-approved',
+  reproved: 'bg-reproved text-white hover:bg-reproved',
+};
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    { children, title, size = 'medium', variant = 'primary', ...props },
+    ref
+  ) => {
+    const buttonClass = classNames(
+      'rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 transition-transform active:scale-95 disabled:bg-gray-300 disabled:cursor-not-allowed',
+      sizeClasses[size],
+      variantClasses[variant]
+    );
+
+    return (
+      <button ref={ref} className={buttonClass} {...props}>
+        {title || children}
+      </button>
+    );
+  }
+);
