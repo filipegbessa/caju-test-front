@@ -7,8 +7,6 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [react(), eslintPlugin()],
   build: {
-    outDir: './dist',
-    sourcemap: true,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/main.tsx'),
@@ -18,7 +16,6 @@ export default defineConfig({
   server: {
     port: 3001,
   },
-  envDir: '.',
   resolve: {
     alias: {
       '~': resolve(__dirname, 'src'),
