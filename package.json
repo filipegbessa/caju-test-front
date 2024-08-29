@@ -3,12 +3,6 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "main": "src/main.tsx",
-  "files": [
-    "dist",
-    "src",
-    "coverage"
-  ],
   "scripts": {
     "dev": "vite",
     "init:db": "json-server --watch db.json",
