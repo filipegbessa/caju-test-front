@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "main": "src/main.tsx",
   "files": [
     "dist",
     "src",
@@ -11,7 +12,7 @@
   "scripts": {
     "dev": "vite",
     "init:db": "json-server --watch db.json",
-    "build": "tsc && vite build && yarn genhtml",
+    "build": "tsc && vite build",
     "genhtml": "mkdir -p dist && cp index.html dist/",
     "test:dev": "jest --watch --verbose --no-cache",
     "test:coverage": "jest --coverage --no-cache",
