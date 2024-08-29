@@ -9,7 +9,11 @@ import { getRegisters } from '~/features/register/registerSlice';
 const DashboardPage = () => {
   // const registrations = useFetchRegistrations();
   const dispatch = useAppDispatch();
-  const { data, loading, error } = useAppSelector((state) => state.register);
+  const {
+    data = [],
+    loading,
+    error,
+  } = useAppSelector((state) => state.register);
 
   console.log('### data', data);
   console.log('### loading', loading);

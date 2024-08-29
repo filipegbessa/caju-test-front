@@ -11,12 +11,6 @@ export default defineConfig({
     rollupOptions: {
       input: ['src/main.tsx', './index.html'],
     },
-
-    // rollupOptions: {
-    //   input: {
-    //     main: resolve(__dirname, 'src/main.tsx'),
-    //   },
-    // },
   },
   server: {
     port: 3001,
