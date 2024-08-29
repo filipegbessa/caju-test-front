@@ -1,9 +1,3 @@
 {
-  // "rewrites": [{ "source": "/(.*)", "destination": "/" }],
-  // "buildCommand": "yarn build",
-  // "devCommand": "yarn dev",
-  // "installCommand": "yarn",
-  // "framework": null,
-  // "outputDirectory": "./dist"
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [{ "source": "/src/main.tsx", "destination": "/index.html" }]
 }
