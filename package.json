@@ -3,12 +3,6 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "files": [
-    "dist",
-    "src",
-    "coverage",
-    "storybook-static"
-  ],
   "scripts": {
     "dev": "vite",
     "init:db": "json-server --watch db.json",
