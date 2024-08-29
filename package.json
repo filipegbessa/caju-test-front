@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "vite",
     "init:db": "json-server --watch db.json",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && yarn test:coverage && cp -r coverage dist/",
     "genhtml": "mkdir -p dist && cp index.html dist/",
     "test:dev": "jest --watch --verbose --no-cache",
     "test:coverage": "jest --coverage --no-cache",
