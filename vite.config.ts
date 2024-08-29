@@ -7,11 +7,16 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [react(), eslintPlugin()],
   build: {
+    outDir: 'dist',
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'src/main.tsx'),
-      },
+      input: ['src/main.tsx', './index.html'],
     },
+
+    // rollupOptions: {
+    //   input: {
+    //     main: resolve(__dirname, 'src/main.tsx'),
+    //   },
+    // },
   },
   server: {
     port: 3001,
