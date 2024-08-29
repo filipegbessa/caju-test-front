@@ -18,4 +18,10 @@ export default defineConfig({
   server: {
     port: 3001,
   },
+  envDir: '.',
+  resolve: {
+    alias: {
+      '~': resolve(__dirname, 'src'),
+    },
+  },
 });
