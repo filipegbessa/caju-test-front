@@ -7,8 +7,8 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [react(), eslintPlugin()],
   build: {
-    outDir: 'dist',
-    sourcemap: true, // Adiciona map de fonte para debug
+    outDir: './dist',
+    sourcemap: true,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/main.tsx'),
