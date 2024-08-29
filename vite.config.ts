@@ -9,7 +9,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     rollupOptions: {
-      input: ['src/main.tsx', './index.html'],
+      input: ['src/main.tsx'],
     },
 
     // rollupOptions: {
