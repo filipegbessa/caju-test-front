@@ -4,6 +4,10 @@
     {
       "source": "/(.*)",
       "destination": "/index.html"
+    },
+    {
+      "source": "/coverage/(.*)",
+      "destination": "/coverage/index.html"
     }
   ]
 }
