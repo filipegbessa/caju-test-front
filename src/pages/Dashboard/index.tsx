@@ -1,6 +1,6 @@
-import Collumns from './components/Columns';
-import * as S from './styles';
-import { SearchBar } from './components/Searchbar';
+// import Collumns from './components/Columns';
+// import * as S from './styles';
+// import { SearchBar } from './components/Searchbar';
 // import { useFetchRegistrations } from "~/hooks";
 import { useAppDispatch, useAppSelector } from '~/app/hooks';
 import { useEffect } from 'react';
@@ -22,10 +22,11 @@ const DashboardPage = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <S.Container>
-      <SearchBar />
-      <Collumns loading={loading} registrations={data} />
-    </S.Container>
+    <>123</>
+    // <S.Container>
+    //   <SearchBar />
+    //   <Collumns loading={loading} registrations={data} />
+    // </S.Container>
   );
 };
 
