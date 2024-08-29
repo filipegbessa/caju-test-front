@@ -5,13 +5,14 @@
   "type": "module",
   "files": [
     "dist",
-    "src"
+    "src",
+    "coverage"
   ],
   "scripts": {
     "dev": "vite",
     "init:db": "json-server --watch db.json",
-    "build": "tsc && vite build",
-    "genhtml": "tsc && vite build",
+    "build": "tsc && vite build && yarn genhtml",
+    "genhtml": "mkdir -p dist && cp index.html dist/",
     "test:dev": "jest --watch --verbose --no-cache",
     "test:coverage": "jest --coverage --no-cache",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
