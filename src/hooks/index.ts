@@ -1,1 +1,0 @@
-export { useFetchRegistrations } from './useFetchRegistrations';
