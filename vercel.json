@@ -1,5 +1,5 @@
 {
-  "buildCommand": "yarn deploy",
+  "buildCommand": "yarn build",
   "devCommand": "yarn dev",
   "installCommand": "yarn",
   "framework": null,
