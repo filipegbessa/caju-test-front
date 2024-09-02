@@ -1,36 +1,46 @@
-// import Collumns from './components/Columns';
-// import * as S from './styles';
-// import { SearchBar } from './components/Searchbar';
-// import { useFetchRegistrations } from "~/hooks";
+import Collumns from './components/Columns';
+import * as S from './styles';
+import { SearchBar } from './components/Searchbar';
 import { useAppDispatch, useAppSelector } from '~/app/hooks';
-import { useEffect } from 'react';
-import { getRegisters } from '~/features/register/registerSlice';
+import { useEffect, useState } from 'react';
+import { IRegistration } from '~/types';
+import { getRegisters } from '~/store/registerSlice';
+import { RootState } from '~/store/store';
 
 const DashboardPage = () => {
-  // const registrations = useFetchRegistrations();
   const dispatch = useAppDispatch();
-  const {
-    data = [],
-    loading,
-    error,
-  } = useAppSelector((state) => state.register);
+  const [filteredRegisters, setFilteredRegisters] = useState<IRegistration[]>(
+    []
+  );
 
-  console.log('### data', data);
-  console.log('### loading', loading);
+  const {
+    data: allRegisters = [],
+    loading,
+    // error,
+  } = useAppSelector((state: RootState) => state.register);
+  const { data: searchResult, loading: searchLoading } = useAppSelector(
+    (state: RootState) => state.search
+  );
+
+  const isLoading = loading || searchLoading;
 
   useEffect(() => {
     dispatch(getRegisters());
   }, [dispatch]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  useEffect(() => {
+    setFilteredRegisters(searchResult ?? allRegisters);
+  }, [allRegisters, searchResult]);
+
+  useEffect(() => {
+    console.log('### isLoading', isLoading);
+  }, [isLoading]);
 
   return (
-    <>123</>
-    // <S.Container>
-    //   <SearchBar />
-    //   <Collumns loading={loading} registrations={data} />
-    // </S.Container>
+    <S.Container>
+      <SearchBar loading={isLoading} />
+      <Collumns loading={isLoading} registrations={filteredRegisters} />
+    </S.Container>
   );
 };
 

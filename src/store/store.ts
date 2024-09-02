@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import registerReducer from '../features/register/registerSlice';
+import registerReducer from './registerSlice';
+import searchReducer from './searchSlice';
 
 export const store = configureStore({
   reducer: {
     register: registerReducer,
+    search: searchReducer,
   },
 });
 

@@ -1,8 +1,8 @@
 export type IRegistration = {
-  admissionDate: string;
-  email: string;
-  employeeName: string;
-  status: string;
-  cpf: string;
   id: string;
+  employeeName: string;
+  cpf: string;
+  email: string;
+  admissionDate: Date;
+  status: string;
 };

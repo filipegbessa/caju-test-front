@@ -1,25 +1,43 @@
 import { HiRefresh } from 'react-icons/hi';
-import { useHistory } from 'react-router-dom';
-import { IconButton } from '~/components/Buttons/IconButton';
+import { Link } from 'react-router-dom';
 import TextField from '~/components/TextField';
-import routes from '~/router/routes';
 import * as S from './styles';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
+import { fetchByCPF } from '~/store/searchSlice';
+import { useAppDispatch } from '~/app/hooks';
 import { Button } from '~/components/Buttons';
-export const SearchBar = () => {
-  const history = useHistory();
+import { getRegisters } from '~/store/registerSlice';
 
-  const goToNewAdmissionPage = () => {
-    history.push(routes.newUser);
-  };
+interface SearchBarProps {
+  loading?: boolean;
+}
+
+export const SearchBar: FC<SearchBarProps> = ({ loading }) => {
+  const [cpfSearch, setCpfSearch] = useState('');
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchByCPF(cpfSearch.length >= 11 ? cpfSearch : null));
+  }, [cpfSearch, dispatch]);
 
   return (
     <S.Container>
-      <TextField placeholder="Digite um CPF válido" />
+      <TextField
+        placeholder="Digite um CPF válido"
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          setCpfSearch(e.target.value)
+        }
+      />
       <S.Actions>
-        <IconButton aria-label="refetch">
+        <Button
+          disabled={loading}
+          circle
+          aria-label="refetch"
+          onClick={() => dispatch(getRegisters())}
+        >
           <HiRefresh />
-        </IconButton>
-        <Button onClick={() => goToNewAdmissionPage()}>Nova Admissão</Button>
+        </Button>
+        <Link to={'/new-user'}>Nova Admissão</Link>
       </S.Actions>
     </S.Container>
   );
