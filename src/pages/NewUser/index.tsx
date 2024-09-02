@@ -26,7 +26,6 @@ const NewUserPage = () => {
     try {
       const data = await saveRegister(values);
       if (data.id) {
-        console.log('### Cadastrado com sucesso!');
         dispatch(getRegisters());
         resetForm();
         navigate('/');

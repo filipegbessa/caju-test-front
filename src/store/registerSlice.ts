@@ -18,7 +18,6 @@ export const getRegisters = createAsyncThunk(
   'register/fetchRegisters',
   async () => {
     const data = await fetchRegisters();
-    console.log('### data', data);
 
     return data;
   }
