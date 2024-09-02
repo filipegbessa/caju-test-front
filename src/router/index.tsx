@@ -7,7 +7,7 @@ const AppRouter = () => {
   return (
     <BrowserRouter basename="/">
       <Routes>
-        <Route path={routes.init} element={<DashboardPage />} />
+        <Route index path={routes.init} element={<DashboardPage />} />
         <Route path={routes.dashboard} element={<DashboardPage />} />
         <Route path={routes.newUser} element={<NewUserPage />} />
       </Routes>

@@ -20,12 +20,11 @@ export const saveRegister = async (
     email: formatEmail(data.email ?? ''),
   };
 
-  const endpoint = isNew
-    ? RoutesEnum.REGISTRATIONS
-    : `${RoutesEnum.REGISTRATIONS}/${data.id}`;
-  const method = isNew ? 'POST' : 'PUT';
-
-  return fetchFromApi<IRegistration>(endpoint, method, formattedData);
+  return fetchFromApi<IRegistration>(
+    RoutesEnum.REGISTRATIONS,
+    'POST',
+    formattedData
+  );
 };
 
 export const deleteRegister = async (id: string): Promise<void> => {
