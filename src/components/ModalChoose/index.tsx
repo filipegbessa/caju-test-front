@@ -17,12 +17,12 @@ export const ModalChoose: FC<
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      contentClass="bg-white sm:rounded-md flex my-5 max-w-3xl"
+      contentClass="bg-white sm:rounded-md flex max-w-3xl p-0"
     >
-      <div className=" bg-white container">
+      <div className="">
         {(title || onClose) && (
-          <div className="flex justify-between items-center px-5 py-2 border-b border-gray gap-2 max-w-sm">
-            {title && <h2>{title}</h2>}
+          <div className="flex justify-between items-center gap-2 max-w-sm border-b border-gray px-5 py-2">
+            <h2>{title}</h2>
             {onClose && (
               <Button
                 circle
@@ -36,11 +36,13 @@ export const ModalChoose: FC<
             )}
           </div>
         )}
+
         {description && (
-          <div className="flex flex-1 px-5 py-2 flex-col gap-1">
+          <div className="flex flex-1 px-5 py-2 flex-col">
             <p>{description}</p>
           </div>
         )}
+
         <div className="flex px-5 pb-5 pt-3 gap-1 justify-between">
           <Button variant="primary" onClick={onClose}>
             Não

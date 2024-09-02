@@ -30,7 +30,9 @@ export const CollumnItem: FC<CollumnItemProps> = ({
   };
 
   return (
-    <div className={`relative z-0 ovreflow-auto ${style[status].background}`}>
+    <div
+      className={`relative z-0 ovreflow-auto rounded-lg ${style[status].background}`}
+    >
       {loading && (
         <div className="absolute top-0 left-0 w-full h-full bg-white opacity-40 z-20" />
       )}
