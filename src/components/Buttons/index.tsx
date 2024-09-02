@@ -17,6 +17,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   circle?: boolean;
   className?: string;
+  testid?: string;
 }
 
 const sizeClasses = {
@@ -51,6 +52,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       variant = 'primary',
       circle,
       className,
+      testid = 'Button',
       ...props
     },
     ref
@@ -65,7 +67,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
 
     return (
-      <button ref={ref} className={buttonClass} {...props} data-testid="Button">
+      <button ref={ref} className={buttonClass} data-testid={testid} {...props}>
         {title || children}
       </button>
     );

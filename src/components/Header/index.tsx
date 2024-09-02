@@ -1,21 +1,16 @@
-import styled from 'styled-components';
+import { FC } from 'react';
 
-export const Header = styled.header`
-  background: rgb(255, 117, 0);
-  background: linear-gradient(
-    258deg,
-    rgba(255, 117, 0, 1) 8%,
-    rgba(232, 5, 55, 1) 53%
-  );
-  width: 100%;
-  height: 64px;
-  top: 0;
-  display: flex;
-  align-items: center;
-  padding: 0px 24px;
-
-  h1 {
-    color: #fff;
-    font-size: 24px;
-  }
-`;
+export const Header: FC = () => (
+  <header
+    className="sticky top-0 left-0 right-0 w-full h-16 flex justify-between items-center px-6 z-10 bg-gradient-to-r from-8% t0-53% from-[#e80537] to-[#e66900]"
+    data-testid="Header"
+  >
+    <div className="container mx-auto">
+      <img
+        src="./img/caju-logo.svg"
+        alt="Caju Front Teste"
+        className="bg-white rounded-md px-2 py-1 h-14"
+      />
+    </div>
+  </header>
+);
