@@ -31,7 +31,10 @@ export const ActionButtons: FC<ActionButtonsProps> = ({ register }) => {
       <Button
         size="small"
         variant={variant.toLowerCase() as 'reproved' | 'approved' | 'review'}
-        onClick={() => updateRegister(RegistrationStatusEnum[variant])}
+        onClick={(e: any) => {
+          e.stopPropagation();
+          updateRegister(RegistrationStatusEnum[variant]);
+        }}
       >
         {text}
       </Button>
@@ -39,10 +42,10 @@ export const ActionButtons: FC<ActionButtonsProps> = ({ register }) => {
   };
 
   return (
-    <>
+    <div className="flex gap-1 flex-col md:flex-row mt-4 flex-wrap">
       {renderButton('Reprovar', RegistrationStatusEnum.REPROVED)}
       {renderButton('Aprovar', RegistrationStatusEnum.APPROVED)}
       {renderButton('Revisar novamente', RegistrationStatusEnum.REVIEW)}
-    </>
+    </div>
   );
 };

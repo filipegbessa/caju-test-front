@@ -18,6 +18,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   circle?: boolean;
   className?: string;
   testid?: string;
+  inline?: boolean;
 }
 
 const sizeClasses = {
@@ -53,6 +54,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       circle,
       className,
       testid = 'Button',
+      inline,
       ...props
     },
     ref
@@ -63,7 +65,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ? [sizeCircleClasses[size], 'rounded-full']
         : [sizeClasses[size], 'rounded-lg'],
       variantClasses[variant],
-      className
+      className,
+      inline && 'border-2'
     );
 
     return (

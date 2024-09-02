@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { FormInput } from '../FormInput';
 import { IRegistration } from '~/types';
 import { FormSelect } from '../FormSelect';
+import { Button } from '../Buttons';
 
 interface RegistrationFormProps {
   initialValues: IRegistration;
@@ -15,20 +16,26 @@ interface RegistrationFormProps {
 
 const registrationSchema = Yup.object().shape({
   admissionDate: Yup.date()
-    .required('Admission date is required')
-    .max(new Date(), 'Admission date cannot be in the future'),
-  email: Yup.string()
-    .email('Invalid email format')
-    .required('Email is required'),
+    .required('Campo obrigatório')
+    .max(new Date(), 'Data de admissão inválida'),
+  email: Yup.string().email('Formato inválido').required('Campo obrigatório'),
   employeeName: Yup.string()
-    .required('Employee name is required')
-    .min(2, 'Employee name must be at least 2 characters'),
+    .required('Campo obrigatório')
+    .test(
+      'full-name',
+      'O nome deve conter nome e sobrenome, cada um com pelo menos 2 caracteres',
+      (value) => {
+        if (!value) return false;
+        const parts = value.trim().split(' ');
+        return parts.length > 1 && parts.every((part) => part.length >= 2);
+      }
+    ),
   status: Yup.string()
     .oneOf(['APPROVED', 'REVIEW', 'REPROVED'], 'Invalid status')
-    .required('Status is required'),
+    .required('Campo obrigatório'),
   cpf: Yup.string()
-    .required('CPF is required')
-    .matches(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/, 'Invalid CPF format'),
+    .required('Campo obrigatório')
+    .matches(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/, 'Formato inválido'),
 });
 
 const RegistrationForm: FC<RegistrationFormProps> = ({
@@ -41,11 +48,11 @@ const RegistrationForm: FC<RegistrationFormProps> = ({
     onSubmit={onSubmit}
   >
     {({ isSubmitting }) => (
-      <Form>
-        <FormInput label="CPF" name="cpf" mask="cpf" />
-        <FormInput type="date" label="Admission Date" name="admissionDate" />
-        <FormInput label="E-mail" name="email" type="email" />
+      <Form className="flex flex-col gap-2">
         <FormInput label="Name" name="employeeName" />
+        <FormInput label="E-mail" name="email" type="email" />
+        <FormInput label="CPF" name="cpf" mask="cpf" />
+        <FormInput type="date" label="Data de admissão" name="admissionDate" />
         <FormSelect
           label="Status"
           name="status"
@@ -55,9 +62,9 @@ const RegistrationForm: FC<RegistrationFormProps> = ({
             { value: 'REPROVED', label: 'Reproved' },
           ]}
         />
-        <button type="submit" disabled={isSubmitting}>
+        <Button className="mt-4" type="submit" disabled={isSubmitting}>
           Cadastrar
-        </button>
+        </Button>
       </Form>
     )}
   </Formik>

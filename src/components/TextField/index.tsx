@@ -29,7 +29,7 @@ const TextField = (props: Props) => {
   return (
     <div>
       <label htmlFor={props.id}>{props.label}</label>
-      <Input {...props} />
+      <Input {...props} data-testid="TextField" />
       <span style={{ fontSize: 12, color: 'red' }}>{props.error}</span>
     </div>
   );

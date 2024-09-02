@@ -17,7 +17,7 @@ export const ModalChoose: FC<
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      contentClass="bg-white sm:rounded-md flex max-w-3xl p-0"
+      contentClass="bg-white sm:rounded-md flex max-w-3xl !p-0"
     >
       <div className="">
         {(title || onClose) && (

@@ -6,11 +6,13 @@ export const Header: FC = () => (
     data-testid="Header"
   >
     <div className="container mx-auto">
-      <img
-        src="./img/caju-logo.svg"
-        alt="Caju Front Teste"
-        className="bg-white rounded-md px-2 py-1 h-14"
-      />
+      <a href="/">
+        <img
+          src="./img/caju-logo.svg"
+          alt="Caju Front Teste"
+          className="bg-white rounded-md px-2 py-1 h-14"
+        />
+      </a>
     </div>
   </header>
 );

@@ -1,11 +1,11 @@
 import { HiRefresh } from 'react-icons/hi';
-import TextField from '~/components/TextField';
-import * as S from './styles';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { fetchByCPF } from '~/store/searchSlice';
-import { useAppDispatch } from '~/app/hooks';
+import { useAppDispatch, useAppSelector } from '~/app/hooks';
 import { Button } from '~/components/Buttons';
 import { getRegisters } from '~/store/registerSlice';
+import { FormInput } from '~/components/FormInput';
+import { RootState } from '~/store/store';
 
 interface SearchBarProps {
   loading?: boolean;
@@ -13,21 +13,42 @@ interface SearchBarProps {
 
 export const SearchBar: FC<SearchBarProps> = ({ loading }) => {
   const [cpfSearch, setCpfSearch] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useAppDispatch();
 
+  const { data: searchResult } = useAppSelector(
+    (state: RootState) => state.search
+  );
+
   useEffect(() => {
-    dispatch(fetchByCPF(cpfSearch.length >= 11 ? cpfSearch : null));
+    dispatch(fetchByCPF(cpfSearch.length === 14 ? cpfSearch : null));
   }, [cpfSearch, dispatch]);
 
+  useEffect(() => {
+    setErrorMessage(
+      !searchResult?.length && searchResult !== null ? 'CPF não encontrado' : ''
+    );
+  }, [searchResult]);
+
   return (
-    <S.Container>
-      <TextField
+    <div
+      className="flex justify-between items-center gap-4"
+      data-testid="SearchBar"
+    >
+      <FormInput
+        maxLength={14}
+        mask="cpf"
+        isField={false}
+        aria-label="serarchCPF"
         placeholder="Digite um CPF válido"
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           setCpfSearch(e.target.value)
         }
+        value={cpfSearch}
+        errorMessage={errorMessage}
       />
-      <S.Actions>
+
+      <div className="flex justify-end items-center gap-4">
         <Button
           disabled={loading}
           circle
@@ -42,8 +63,7 @@ export const SearchBar: FC<SearchBarProps> = ({ loading }) => {
           onClick={() => (window.location.href = '/#/new-user')}
           title="Nova Admissão"
         />
-        {/* <Link to={'/new-user'}>Nova Admissão</Link> */}
-      </S.Actions>
-    </S.Container>
+      </div>
+    </div>
   );
 };

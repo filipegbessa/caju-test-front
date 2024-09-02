@@ -3,17 +3,25 @@ import { ErrorMessage, Field, FieldProps } from 'formik';
 import { applyMask } from '~/utils';
 
 interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label?: string;
   mask?: 'cpf';
+  isField?: boolean;
+  errorMessage?: string;
 }
 
-export const FormInput: FC<FormInputProps> = ({ label, mask, ...props }) => {
-  return (
-    <div>
-      <label>{label}</label>
+export const FormInput: FC<FormInputProps> = ({
+  label,
+  mask,
+  isField = true,
+  errorMessage,
+  ...props
+}) => {
+  const content = isField ? (
+    <>
       <Field name={props.name}>
         {({ field, form }: FieldProps) => (
           <input
+            className="cj-input"
             {...field}
             {...props}
             value={applyMask(field.value, mask)}
@@ -25,10 +33,24 @@ export const FormInput: FC<FormInputProps> = ({ label, mask, ...props }) => {
         )}
       </Field>
       <ErrorMessage name={props.name as string}>
-        {(message) => (
-          <div style={{ color: 'red', marginTop: '4px' }}>{message}</div>
-        )}
+        {(message) => <div className="cj-error-input">{message}</div>}
       </ErrorMessage>
+    </>
+  ) : (
+    <>
+      <input
+        {...props}
+        value={applyMask(props.value as string, mask)}
+        className="cj-input"
+        data-testid="TextField"
+      />
+      {errorMessage && <div className="cj-error-input">{errorMessage}</div>}
+    </>
+  );
+  return (
+    <div>
+      {label && <label>{label}</label>}
+      {content}
     </div>
   );
 };

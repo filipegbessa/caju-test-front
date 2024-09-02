@@ -6,6 +6,20 @@
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 }
 
+@layer components {
+  .cj-input {
+    @apply py-2 align-middle rounded-md w-full min-h-9 bg-white border-gray border transition-all text-base focus:border-secondary shadow-sm indent-2;
+  }
+
+  .cj-error-input {
+    @apply text-xs mt-1 text-error;
+  }
+
+  .cj-card {
+    @apply border-2 border-[#f0f0f0] w-full max-w-[500px] p-12 flex flex-col gap-4;
+  }
+}
+
 body {
   font-family: 'Inter', sans-serif;
   margin: 0px;

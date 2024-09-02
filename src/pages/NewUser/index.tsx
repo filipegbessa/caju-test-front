@@ -1,22 +1,22 @@
-import * as S from './styles';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
-import { IconButton } from '../../components/Buttons/IconButton';
 import RegistrationForm from '~/components/RegistrationForm';
 import { IRegistration } from '~/types';
 import { saveRegister } from '~/api/register';
 import { FormikHelpers } from 'formik';
 import { useAppDispatch } from '~/app/hooks';
 import { getRegisters } from '~/store/registerSlice';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '~/components/Buttons';
 
 const NewUserPage = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const initialValues: IRegistration = {
     admissionDate: new Date(),
     email: '',
     employeeName: '',
-    status: 'APPROVED',
+    status: '',
     cpf: '',
-    id: '',
   };
 
   const handleSubmit = async (
@@ -29,6 +29,7 @@ const NewUserPage = () => {
         console.log('### Cadastrado com sucesso!');
         dispatch(getRegisters());
         resetForm();
+        navigate('/');
       }
     } catch (error) {
       console.error('Error during submission:', error);
@@ -36,18 +37,25 @@ const NewUserPage = () => {
   };
 
   return (
-    <S.Container>
-      <S.Card>
-        <IconButton aria-label="back">
+    <div className="flex items-center justify-center flex-col gap-4">
+      <div className="cj-card">
+        <Button
+          aria-label="back"
+          variant="blank"
+          size="large"
+          circle
+          inline
+          onClick={() => window.history.back()}
+        >
           <HiOutlineArrowLeft size={24} />
-        </IconButton>
+        </Button>
 
         <RegistrationForm
           initialValues={initialValues}
           onSubmit={handleSubmit}
         />
-      </S.Card>
-    </S.Container>
+      </div>
+    </div>
   );
 };
 

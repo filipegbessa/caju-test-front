@@ -31,6 +31,7 @@ export const CollumnItem: FC<CollumnItemProps> = ({
 
   return (
     <div
+      data-testid="CollumnItem"
       className={`relative z-0 ovreflow-auto rounded-lg ${style[status].background}`}
     >
       {loading && (

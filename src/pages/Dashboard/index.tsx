@@ -1,5 +1,4 @@
 import { Collumns } from './components/Columns';
-import * as S from './styles';
 import { SearchBar } from './components/Searchbar';
 import { useAppDispatch, useAppSelector } from '~/app/hooks';
 import { useEffect, useState } from 'react';
@@ -32,15 +31,11 @@ const DashboardPage = () => {
     setFilteredRegisters(searchResult ?? allRegisters);
   }, [allRegisters, searchResult]);
 
-  useEffect(() => {
-    console.log('### isLoading', isLoading);
-  }, [isLoading]);
-
   return (
-    <S.Container>
+    <div className="p-6 flex flex-col">
       <SearchBar loading={isLoading} />
       <Collumns loading={isLoading} registrations={filteredRegisters} />
-    </S.Container>
+    </div>
   );
 };
 

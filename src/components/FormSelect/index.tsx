@@ -14,7 +14,8 @@ export const FormSelect: FC<FormSelectProps> = ({
   return (
     <div>
       <label>{label}</label>
-      <Field as="select" {...props}>
+      <Field as="select" {...props} className="cj-input">
+        <option value="">Selecione...</option>
         {options?.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
@@ -22,9 +23,7 @@ export const FormSelect: FC<FormSelectProps> = ({
         ))}
       </Field>
       <ErrorMessage name={props.name as string}>
-        {(mensagens) => (
-          <div style={{ color: 'red', marginTop: '4px' }}>{mensagens}</div>
-        )}
+        {(mensagens) => <div className="cj-error-input">{mensagens}</div>}
       </ErrorMessage>
     </div>
   );

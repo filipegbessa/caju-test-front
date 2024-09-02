@@ -1,5 +1,5 @@
 export type IRegistration = {
-  id: string;
+  id?: string;
   employeeName: string;
   cpf: string;
   email: string;
