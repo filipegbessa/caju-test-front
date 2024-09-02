@@ -17,7 +17,7 @@ const initialState: SearchState = {
 export const fetchByCPF = createAsyncThunk(
   'search/fetchByCPF',
   async (cpf: string | null, { rejectWithValue }) => {
-    if (!cpf) return null;
+    if (!cpf || !cpf?.length) return null;
 
     try {
       const data = await fetchRegisters();
