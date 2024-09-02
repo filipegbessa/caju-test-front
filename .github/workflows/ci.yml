@@ -33,7 +33,14 @@ jobs:
           name: coverage-report
           path: coverage
 
-  deploy:
+      - name: Deploy test coverage to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.CAJU_GITHUB_TOKEN }}
+          publish_dir: ./coverage/lcov-report
+          dest_dir: tests
+
+  storybook:
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -48,20 +55,12 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Run tests and generate coverage
-        run: yarn test:coverage
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.CAJU_GITHUB_TOKEN }}
-          publish_dir: ./coverage/lcov-report
-
       - name: Build Storybook
-        run: yarn build-storybook
+        run: yarn build-storybook -o storybook-static
 
       - name: Deploy Storybook to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.CAJU_GITHUB_TOKEN }}
           publish_dir: ./storybook-static
+          dest_dir: storybook
