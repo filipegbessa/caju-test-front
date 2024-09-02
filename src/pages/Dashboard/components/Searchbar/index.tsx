@@ -1,5 +1,4 @@
 import { HiRefresh } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
 import TextField from '~/components/TextField';
 import * as S from './styles';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
@@ -34,10 +33,16 @@ export const SearchBar: FC<SearchBarProps> = ({ loading }) => {
           circle
           aria-label="refetch"
           onClick={() => dispatch(getRegisters())}
+          variant="secondary"
         >
           <HiRefresh />
         </Button>
-        <Link to={'/new-user'}>Nova Admissão</Link>
+        <Button
+          disabled={loading}
+          onClick={() => (window.location.href = '/#/new-user')}
+          title="Nova Admissão"
+        />
+        {/* <Link to={'/new-user'}>Nova Admissão</Link> */}
       </S.Actions>
     </S.Container>
   );

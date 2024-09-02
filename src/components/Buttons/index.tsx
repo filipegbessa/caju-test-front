@@ -32,8 +32,10 @@ const sizeCircleClasses = {
 };
 
 const variantClasses = {
-  primary: 'bg-green-500 text-white hover:bg-green-600',
-  secondary: 'bg-gray-500 text-white hover:bg-gray-600',
+  primary:
+    'bg-primary text-white hover:bg-primary-hover active:bg-primary-active',
+  secondary:
+    'bg-secondary text-white hover:bg-secondary-hover active:bg-secondary-active',
   review: 'bg-review text-white hover:bg-review',
   approved: 'bg-approved text-white hover:bg-approved',
   reproved: 'bg-reproved text-white hover:bg-reproved',

@@ -28,6 +28,6 @@ export const saveRegister = async (
   return fetchFromApi<IRegistration>(endpoint, method, formattedData);
 };
 
-export const deleteRegister = async (id: number): Promise<void> => {
+export const deleteRegister = async (id: string): Promise<void> => {
   return fetchFromApi<void>(`${RoutesEnum.REGISTRATIONS}/${id}`, 'DELETE');
 };

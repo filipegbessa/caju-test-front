@@ -35,7 +35,7 @@ describe('Button Component', () => {
 
     const buttonElement = screen.getByTestId('Button');
     expect(buttonElement).toHaveClass(
-      'bg-gray-500 text-white hover:bg-gray-600'
+      'bg-secondary text-white hover:bg-secondary-hover active:bg-secondary-active'
     );
   });
 
