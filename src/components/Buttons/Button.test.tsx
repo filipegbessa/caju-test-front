@@ -73,7 +73,7 @@ describe('Button Component', () => {
     const buttonElement = screen.getByTestId('Button');
     expect(buttonElement).toBeDisabled();
     expect(buttonElement).toHaveClass(
-      'disabled:bg-gray-300 disabled:cursor-not-allowed'
+      'disabled:bg-gray disabled:cursor-not-allowed'
     );
   });
 

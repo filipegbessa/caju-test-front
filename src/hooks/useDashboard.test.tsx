@@ -1,9 +1,10 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import { useDashboard } from '~/hooks/useDashboard';
 import { useAppDispatch, useAppSelector } from '~/app/hooks';
 import { getRegisters } from '~/store/registerSlice';
 import { IRegistration } from '~/types';
 import { RegistrationStatusEnum } from '~/enum';
+import '@testing-library/jest-dom';
 
 jest.mock('~/app/hooks', () => ({
   useAppDispatch: jest.fn(),

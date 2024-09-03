@@ -9,8 +9,7 @@ export const useFetchRegistrations = (): IRegistration[] => {
     const fetchRegistrations = async () => {
       try {
         const data = await fetchRegisters();
-
-        setRegistrations(data);
+        setRegistrations(data || []);
       } catch (error) {
         console.error('Error fetching registrations:', error);
       }

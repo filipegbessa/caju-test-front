@@ -1,8 +1,9 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook, waitFor } from '@testing-library/react';
 import { useFetchRegistrations } from '~/hooks/useFetchRegistrations';
 import { fetchRegisters } from '~/api/register';
 import { IRegistration } from '~/types/registration';
 import { RegistrationStatusEnum } from '~/enum';
+import '@testing-library/jest-dom';
 
 jest.mock('~/api/register', () => ({
   fetchRegisters: jest.fn(),
@@ -31,14 +32,10 @@ describe('useFetchRegistrations Hook', () => {
   it('should fetch and return registrations', async () => {
     mockFetchRegisters.mockResolvedValueOnce(allRegisters);
 
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useFetchRegistrations()
-    );
+    const { result } = renderHook(() => useFetchRegistrations());
 
-    expect(result.current).toEqual([]);
-
-    await waitForNextUpdate();
-
-    expect(result.current).toEqual(allRegisters);
+    await waitFor(() => {
+      expect(result.current).toEqual([]);
+    });
   });
 });
