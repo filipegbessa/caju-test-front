@@ -60,13 +60,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const buttonClass = classNames(
-      'font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 transition-transform active:scale-95 disabled:bg-gray-300 disabled:cursor-not-allowed flex justify-center items-center text-nowrap',
+      'font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 transition-transform active:scale-95 disabled:bg-gray disabled:hover:bg-gray disabled:active:bg-gray disabled:cursor-not-allowed flex justify-center items-center text-nowrap',
       circle
         ? [sizeCircleClasses[size], 'rounded-full']
         : [sizeClasses[size], 'rounded-lg'],
       variantClasses[variant],
       className,
-      inline && 'border-2'
+      inline ? 'border-2' : ''
     );
 
     return (
