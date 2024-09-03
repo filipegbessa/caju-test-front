@@ -8,6 +8,8 @@ module.exports = {
     'eslint-config-prettier',
     'plugin:react-hooks/recommended',
     'plugin:storybook/recommended',
+    "react-app",
+    "react-app/jest"
   ],
   settings: {
     react: {
