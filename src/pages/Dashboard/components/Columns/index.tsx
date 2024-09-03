@@ -3,7 +3,7 @@ import { RegistrationStatusEnum } from '~/enum';
 import { FC, useState } from 'react';
 import { filterRegistrationsByStatus } from '~/utils';
 import { CollumnItem } from '../ColumnItem';
-import { ModalChoose } from '~/components/ModalChoose';
+import { ModalChoose } from '~/components';
 import { deleteRegister } from '~/api/register';
 import { useAppDispatch } from '~/app/hooks';
 import { getRegisters } from '~/store/registerSlice';

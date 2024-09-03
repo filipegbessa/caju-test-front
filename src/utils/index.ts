@@ -1,3 +1,3 @@
 export { fetchFromApi } from './api';
-export { applyMask } from './form';
+export { applyMask, formatCPF, formatEmail } from './form';
 export { filterRegistrationsByStatus } from './registration';

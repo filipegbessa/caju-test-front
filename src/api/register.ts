@@ -1,7 +1,6 @@
 import { RoutesEnum } from '~/enum';
 import { IRegistration } from '~/types/registration';
-import { fetchFromApi } from '~/utils/api';
-import { formatCPF, formatEmail } from '~/utils/form';
+import { formatCPF, formatEmail, fetchFromApi } from '~/utils';
 
 export const fetchRegisters = async (): Promise<IRegistration[]> => {
   return fetchFromApi<IRegistration[]>(RoutesEnum.REGISTRATIONS, 'GET');

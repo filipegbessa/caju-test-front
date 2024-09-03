@@ -38,7 +38,7 @@ const registrationSchema = Yup.object().shape({
     .matches(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/, 'Formato inválido'),
 });
 
-const RegistrationForm: FC<RegistrationFormProps> = ({
+export const RegistrationForm: FC<RegistrationFormProps> = ({
   initialValues,
   onSubmit,
 }) => (
@@ -69,5 +69,3 @@ const RegistrationForm: FC<RegistrationFormProps> = ({
     )}
   </Formik>
 );
-
-export default RegistrationForm;

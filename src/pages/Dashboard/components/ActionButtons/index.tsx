@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { saveRegister } from '~/api/register';
 import { useAppDispatch } from '~/app/hooks';
-import { Button } from '~/components/Buttons';
+import { Button } from '~/components';
 import { RegistrationStatusEnum } from '~/enum';
 import { getRegisters } from '~/store/registerSlice';
 import { IRegistration } from '~/types';

@@ -1,39 +1,9 @@
 import { HiOutlineArrowLeft } from 'react-icons/hi';
-import RegistrationForm from '~/components/RegistrationForm';
-import { IRegistration } from '~/types';
-import { saveRegister } from '~/api/register';
-import { FormikHelpers } from 'formik';
-import { useAppDispatch } from '~/app/hooks';
-import { getRegisters } from '~/store/registerSlice';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '~/components/Buttons';
+import { Button, RegistrationForm } from '~/components';
+import { useNewUser } from '~/hooks';
 
 const NewUserPage = () => {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const initialValues: IRegistration = {
-    admissionDate: new Date(),
-    email: '',
-    employeeName: '',
-    status: '',
-    cpf: '',
-  };
-
-  const handleSubmit = async (
-    values: IRegistration,
-    { resetForm }: FormikHelpers<IRegistration>
-  ) => {
-    try {
-      const data = await saveRegister(values);
-      if (data.id) {
-        dispatch(getRegisters());
-        resetForm();
-        navigate('/');
-      }
-    } catch (error) {
-      console.error('Error during submission:', error);
-    }
-  };
+  const { initialValues, handleSubmit, handleBackClick } = useNewUser();
 
   return (
     <div className="flex items-center justify-center flex-col gap-4">
@@ -44,7 +14,7 @@ const NewUserPage = () => {
           size="large"
           circle
           inline
-          onClick={() => window.history.back()}
+          onClick={handleBackClick}
         >
           <HiOutlineArrowLeft size={24} />
         </Button>

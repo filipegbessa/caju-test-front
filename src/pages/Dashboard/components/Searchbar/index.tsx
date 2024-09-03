@@ -2,10 +2,9 @@ import { HiRefresh } from 'react-icons/hi';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { fetchByCPF } from '~/store/searchSlice';
 import { useAppDispatch, useAppSelector } from '~/app/hooks';
-import { Button } from '~/components/Buttons';
 import { getRegisters } from '~/store/registerSlice';
-import { FormInput } from '~/components/FormInput';
 import { RootState } from '~/store/store';
+import { FormInput, Button } from '~/components';
 
 interface SearchBarProps {
   loading?: boolean;
