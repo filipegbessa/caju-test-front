@@ -7,9 +7,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'eslint-config-prettier',
     'plugin:react-hooks/recommended',
-    'plugin:storybook/recommended',
-    "react-app",
-    "react-app/jest"
+    'plugin:storybook/recommended'
   ],
   settings: {
     react: {

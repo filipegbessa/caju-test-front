@@ -924,7 +924,7 @@
 
 "@babel/preset-env@^7.24.4", "@babel/preset-env@^7.25.4":
   version "7.25.4"
-  resolved "https://registry.npmjs.org/@babel/preset-env/-/preset-env-7.25.4.tgz"
+  resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.25.4.tgz#be23043d43a34a2721cd0f676c7ba6f1481f6af6"
   integrity sha512-W9Gyo+KmcxjGahtt3t9fb14vFRWvPpu5pT6GBlovAK6BTBcxgjfVMSQCfJl4oi35ODrxP6xx2Wr8LNST57Mraw==
   dependencies:
     "@babel/compat-data" "^7.25.4"
@@ -1031,7 +1031,7 @@
 
 "@babel/preset-react@^7.24.7":
   version "7.24.7"
-  resolved "https://registry.npmjs.org/@babel/preset-react/-/preset-react-7.24.7.tgz"
+  resolved "https://registry.yarnpkg.com/@babel/preset-react/-/preset-react-7.24.7.tgz#480aeb389b2a798880bf1f889199e3641cbb22dc"
   integrity sha512-AAH4lEkpmzFWrGVlHaxJB7RLH21uPQ9+He+eFLWHmF9IuFQVugz8eAsamaW0DXRrTfco5zj1wWtpdcXJUOfsag==
   dependencies:
     "@babel/helper-plugin-utils" "^7.24.7"
@@ -1075,6 +1075,13 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
+"@babel/runtime@^7.13.9":
+  version "7.25.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.25.6.tgz#9afc3289f7184d8d7f98b099884c26317b9264d2"
+  integrity sha512-VBj9MYyDb9tuLq7yzqjgzt6Q+IBQLrGZfdjOekyEirZPHxXWoTSGUTMrpsfi58Up73d13NfYLv8HT9vmznjzhQ==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
 "@babel/runtime@^7.17.8", "@babel/runtime@^7.8.4":
   version "7.25.4"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.25.4.tgz"
@@ -1091,7 +1098,7 @@
     "@babel/parser" "^7.24.7"
     "@babel/types" "^7.24.7"
 
-"@babel/template@^7.25.0":
+"@babel/template@^7.25.0", "@babel/template@^7.4.4":
   version "7.25.0"
   resolved "https://registry.npmjs.org/@babel/template/-/template-7.25.0.tgz"
   integrity sha512-aOOgh1/5XzKvg1jvVz7AVrx2piJ2XBi227DHmbY6y+bM9H2FlN+IfecYu4Xl0cNiiVejlsCri89LUsbj8vJD9Q==
@@ -2294,6 +2301,14 @@
     lodash "^4.17.21"
     redent "^3.0.0"
 
+"@testing-library/react-hooks@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/react-hooks/-/react-hooks-8.0.1.tgz#0924bbd5b55e0c0c0502d1754657ada66947ca12"
+  integrity sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    react-error-boundary "^3.1.0"
+
 "@testing-library/react@^16.0.1":
   version "16.0.1"
   resolved "https://registry.npmjs.org/@testing-library/react/-/react-16.0.1.tgz"
@@ -2464,7 +2479,7 @@
   resolved "https://registry.npmjs.org/@types/aria-query/-/aria-query-5.0.4.tgz"
   integrity sha512-rfT93uj5s0PRL7EzccGMs3brplhcrghnDoV26NqKhCAS1hVo+WdNsPvE/yb6ilfr5hi2MEk6d5EWJTKdxg8jVw==
 
-"@types/babel__core@^7.1.14", "@types/babel__core@^7.18.0", "@types/babel__core@^7.20.5":
+"@types/babel__core@^7.1.12", "@types/babel__core@^7.1.14", "@types/babel__core@^7.18.0", "@types/babel__core@^7.20.5":
   version "7.20.5"
   resolved "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.20.5.tgz"
   integrity sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==
@@ -3416,7 +3431,7 @@ babel-core@^7.0.0-bridge.0:
 
 babel-jest@^29.7.0:
   version "29.7.0"
-  resolved "https://registry.npmjs.org/babel-jest/-/babel-jest-29.7.0.tgz"
+  resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-29.7.0.tgz#f4369919225b684c56085998ac63dbd05be020d5"
   integrity sha512-BrvGY3xZSwEcCzKvKsCi2GgHqDqsYkOP4/by5xCgIwGXQxIEh+8ew3gmrE1y7XRR6LHZIj6yLYnUi/mm2KXKBg==
   dependencies:
     "@jest/transform" "^29.7.0"
@@ -3472,6 +3487,39 @@ babel-plugin-polyfill-regenerator@^0.6.1:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.6.2"
 
+babel-plugin-transform-import-meta@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-import-meta/-/babel-plugin-transform-import-meta-2.2.1.tgz#eb5b79019ff0a9157b94d8280955121189a2964b"
+  integrity sha512-AxNh27Pcg8Kt112RGa3Vod2QS2YXKKJ6+nSvRtv7qQTJAdx0MZa4UHZ4lnxHUWA2MNbLuZQv5FVab4P1CoLOWw==
+  dependencies:
+    "@babel/template" "^7.4.4"
+    tslib "^2.4.0"
+
+babel-plugin-transform-vite-meta-env@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-vite-meta-env/-/babel-plugin-transform-vite-meta-env-1.0.3.tgz#cbf81becc95b71dcc170ee4863cb7f6919ed99bb"
+  integrity sha512-eyfuDEXrMu667TQpmctHeTlJrZA6jXYHyEJFjcM0yEa60LS/LXlOg2PBbMb8DVS+V9CnTj/j9itdlDVMcY2zEg==
+  dependencies:
+    "@babel/runtime" "^7.13.9"
+    "@types/babel__core" "^7.1.12"
+
+babel-plugin-transform-vite-meta-glob@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-vite-meta-glob/-/babel-plugin-transform-vite-meta-glob-1.1.2.tgz#6bccd7b695f445d8c73a5dd47fa50c85ba5395f3"
+  integrity sha512-o984FUo++WYnfgUaC8ymzmNPng5Kda5A6j6PFC0uOqhFXlAsD6mNhEBhaNzbUGfq/aPcyeGo67fYXlg20rh9aA==
+  dependencies:
+    "@babel/runtime" "^7.13.9"
+    "@types/babel__core" "^7.1.12"
+    glob "^10.3.10"
+
+babel-plugin-transform-vite-meta-hot@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-vite-meta-hot/-/babel-plugin-transform-vite-meta-hot-1.0.0.tgz#d806de0b1f9826eb3fe0c4e82996973d818895df"
+  integrity sha512-qF7T46bDG5UPPOfy4MFgQJyd3mZvm1sGOR2gZ4lIHy6DEcxAVTIt39/adAn89il44CvwestshuEybKPMR+L/Tg==
+  dependencies:
+    "@babel/runtime" "^7.13.9"
+    "@types/babel__core" "^7.1.12"
+
 babel-preset-current-node-syntax@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/babel-preset-current-node-syntax/-/babel-preset-current-node-syntax-1.0.1.tgz"
@@ -3497,6 +3545,17 @@ babel-preset-jest@^29.6.3:
   dependencies:
     babel-plugin-jest-hoist "^29.6.3"
     babel-preset-current-node-syntax "^1.0.0"
+
+babel-preset-vite@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/babel-preset-vite/-/babel-preset-vite-1.1.3.tgz#9cbc685fe04d52cd3956d095e664ed1e1262364f"
+  integrity sha512-xSt/EiezzeMd4RI2hjMCNyn/FGzGeroKODPMAUTsgpeHC4dFf2qiCQfyNuiNzn1OwoF4n+NYSsORhUN5G/2KTA==
+  dependencies:
+    "@babel/runtime" "^7.13.9"
+    "@types/babel__core" "^7.1.12"
+    babel-plugin-transform-vite-meta-env "1.0.3"
+    babel-plugin-transform-vite-meta-glob "1.1.2"
+    babel-plugin-transform-vite-meta-hot "1.0.0"
 
 balanced-match@^1.0.0:
   version "1.0.2"
@@ -6221,7 +6280,7 @@ jest-each@^29.7.0:
 
 jest-environment-jsdom@^29.7.0:
   version "29.7.0"
-  resolved "https://registry.npmjs.org/jest-environment-jsdom/-/jest-environment-jsdom-29.7.0.tgz"
+  resolved "https://registry.yarnpkg.com/jest-environment-jsdom/-/jest-environment-jsdom-29.7.0.tgz#d206fa3551933c3fd519e5dfdb58a0f5139a837f"
   integrity sha512-k9iQbsf9OyOfdzWH8HDmrRT0gSIcX+FLNW7IQq94tFX0gynPwqDTW0Ho6iMVNjGz/nb+l/vW3dWM2bbLLpkbXA==
   dependencies:
     "@jest/environment" "^29.7.0"
@@ -7785,6 +7844,13 @@ react-element-to-jsx-string@^15.0.0:
     is-plain-object "5.0.0"
     react-is "18.1.0"
 
+react-error-boundary@^3.1.0:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-3.1.4.tgz#255db92b23197108757a888b01e5b729919abde0"
+  integrity sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+
 react-fast-compare@^2.0.1:
   version "2.0.4"
   resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-2.0.4.tgz"
@@ -8935,7 +9001,7 @@ tslib@^1.13.0, tslib@^1.8.1:
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.0.0, tslib@^2.0.1, tslib@^2.1.0:
+tslib@^2.0.0, tslib@^2.0.1, tslib@^2.1.0, tslib@^2.4.0:
   version "2.7.0"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.7.0.tgz"
   integrity sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==
@@ -9263,6 +9329,11 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+vite-plugin-environment@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/vite-plugin-environment/-/vite-plugin-environment-1.1.3.tgz#d01a04abb2f69730a4866c9c9db51d3dab74645b"
+  integrity sha512-9LBhB0lx+2lXVBEWxFZC+WO7PKEyE/ykJ7EPWCq95NEcCpblxamTbs5Dm3DLBGzwODpJMEnzQywJU8fw6XGGGA==
 
 vite@^5.2.0:
   version "5.2.12"

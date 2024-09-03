@@ -2,15 +2,27 @@
 export default {
   verbose: true,
   preset: 'ts-jest',
-  testEnvironment: 'jsdom',
+  // testEnvironment: 'jsdom',
+  testEnvironment: "jest-environment-jsdom",
   transform: {
     '^.+\\.tsx?$': ['ts-jest', { isolatedModules: true }],
-    '^.+\\.(js|jsx)$': 'babel-jest',
+    "^.+\\.[t|j]sx?$": "babel-jest",
   },
   moduleNameMapper: {
-    '^~/(.+)': '<rootDir>/src/$1',
+    "^.+\\.svg$": "jest-svg-transformer",
+    "^.+\\.(css|less|scss)$": "identity-obj-proxy",
+    "^~/(.*)$": "<rootDir>/src/$1",
   },
   collectCoverage: true,
   coverageDirectory: 'coverage',
-  //   setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
+  collectCoverageFrom: [
+    '**/components/**/*.{js,jsx,ts,tsx}',
+    '!**/*.stories.{js,jsx,ts,tsx}',
+    '!**/node_modules/**',
+    '!**/vendor/**',
+  ],
+  setupFilesAfterEnv: [
+    "<rootDir>/setupTests.js"
+  ],
+  // setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
 };

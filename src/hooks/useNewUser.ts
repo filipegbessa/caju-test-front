@@ -13,7 +13,7 @@ export const useNewUser = () => {
     admissionDate: new Date(),
     email: '',
     employeeName: '',
-    status: '',
+    status: null,
     cpf: '',
   };
 

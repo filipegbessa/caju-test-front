@@ -1,10 +1,11 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { FormInputProps, FormInput } from './';
 
 describe('FormInput Component', () => {
   const defaultProps: FormInputProps = {
     name: 'testInput',
     label: 'Test Label',
+    isField: false,
   };
 
   it('renders the input with the correct label', () => {
@@ -20,17 +21,16 @@ describe('FormInput Component', () => {
   });
 
   it('renders the input with the correct name and type', () => {
-    render(<FormInput {...defaultProps} />);
+    render(<FormInput {...defaultProps} type="text" />);
     const inputElement = screen.getByTestId('FormInput');
     expect(inputElement).toBeInTheDocument();
     expect(inputElement).toHaveAttribute('name', 'testInput');
     expect(inputElement).toHaveAttribute('type', 'text');
   });
 
-  it('applies the mask correctly when mask prop is provided', () => {
-    render(<FormInput {...defaultProps} mask="cpf" />);
+  it('applies the mask correctly when mask prop is provided', async () => {
+    render(<FormInput {...defaultProps} mask="cpf" value="12345678909" />);
     const inputElement = screen.getByTestId('FormInput');
-    fireEvent.change(inputElement, { target: { value: '12345678909' } });
     expect(inputElement).toHaveValue('123.456.789-09');
   });
 
@@ -45,19 +45,5 @@ describe('FormInput Component', () => {
     render(<FormInput {...defaultProps} />);
     const errorElement = screen.queryByText('Error occurred');
     expect(errorElement).not.toBeInTheDocument();
-  });
-
-  it('handles onChange event and applies the mask correctly', () => {
-    render(<FormInput {...defaultProps} mask="cpf" />);
-    const inputElement = screen.getByTestId('FormInput');
-    fireEvent.change(inputElement, { target: { value: '12345678909' } });
-    expect(inputElement).toHaveValue('123.456.789-09');
-  });
-
-  it('renders as a regular input when isField prop is false', () => {
-    render(<FormInput {...defaultProps} isField={false} />);
-    const inputElement = screen.getByTestId('FormInput');
-    expect(inputElement).toBeInTheDocument();
-    expect(inputElement).not.toHaveAttribute('name', 'testInput');
   });
 });

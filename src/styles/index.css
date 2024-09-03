@@ -16,7 +16,11 @@
   }
 
   .cj-card {
-    @apply border-2 border-[#f0f0f0] w-full max-w-[500px] p-12 flex flex-col gap-4;
+    @apply flex relative flex-col border border-white p-4 bg-white shadow-md rounded-md;
+  }
+
+  .cj-card-content {
+    @apply border-2 border-[#f0f0f0] w-full max-w-[500px] p-5 flex flex-col gap-4 mt-8 mb-5 mx-auto;
   }
 }
 

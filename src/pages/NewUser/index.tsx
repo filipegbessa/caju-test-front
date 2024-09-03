@@ -7,7 +7,7 @@ const NewUserPage = () => {
 
   return (
     <div className="flex items-center justify-center flex-col gap-4">
-      <div className="cj-card">
+      <div className="cj-card-content">
         <Button
           aria-label="back"
           variant="blank"

@@ -42,7 +42,7 @@ export const RegistrationCard: FC<RegistrationCardProps> = ({
         console.log('#######');
       }}
       data-testid="RegistrationCard"
-      className="flex relative flex-col border border-white p-4 bg-white shadow-md rounded-md"
+      className="cj-card"
     >
       <Button
         circle

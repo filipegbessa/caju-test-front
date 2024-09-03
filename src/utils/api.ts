@@ -1,9 +1,9 @@
 import axios, { AxiosRequestConfig, Method } from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_DB_URL;
+const baseUrlAPI = process.env.VITE_DB_URL;
 
 const api = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: baseUrlAPI,
 });
 
 export const fetchFromApi = async <T>(
