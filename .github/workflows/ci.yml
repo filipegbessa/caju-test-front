@@ -32,7 +32,6 @@ jobs:
         with:
           github_token: ${{ secrets.CAJU_GITHUB_TOKEN }}
           publish_dir: ./coverage/lcov-report
-          dest_dir: tests
 
   storybook:
     needs: test
@@ -50,11 +49,10 @@ jobs:
         run: yarn install
 
       - name: Build Storybook
-        run: yarn build-storybook -o storybook-static
+        run: yarn build-storybook
 
       - name: Deploy Storybook to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.CAJU_GITHUB_TOKEN }}
           publish_dir: ./storybook-static
-          dest_dir: storybook
