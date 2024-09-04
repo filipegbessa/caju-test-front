@@ -1,18 +1,18 @@
 # Resultado do teste:
 
-Github servidor: https://github.com/filipegbessa/caju-server
-site: https://caju-test-front.vercel.app/#/login
+Github servidor: https://github.com/filipegbessa/caju-server <br/>
+site: https://caju-test-front.vercel.app/
 
-Acesso:
-Email: test@caju.com
+Acesso: <br/>
+Email: test@caju.com <br/>
 Senha: 123
 
-Storybook: https://filipegbessa.github.io/caju-test-fron
+Storybook: https://filipegbessa.github.io/caju-test-fron <br/>
 Cobertura de testes unitario: https://caju-test-front.vercel.app/coverage/index.html
 
-Tecnologias usadas:
-Para os formulários Formik e Yup para validação
-Teste e2e: Cypress
+Tecnologias usadas: <br/>
+Para os formulários Formik e Yup para validação <br/>
+Teste e2e: Cypressv <br/>
 CSS: Tailwind
 
 # Caju Front End Teste
