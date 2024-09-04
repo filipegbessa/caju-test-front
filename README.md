@@ -1,3 +1,18 @@
+# Resultado do teste:
+Github servidor: https://github.com/filipegbessa/caju-server
+site: https://caju-test-front.vercel.app/#/login
+Acesso:
+Email: test@caju.com
+Senha: 123
+Storybook: https://filipegbessa.github.io/caju-test-fron
+Cobertura de testes unitario: https://caju-test-front.vercel.app/coverage/index.html
+
+Tecnologias usadas:
+Para os formulários Formik e Yup para validação
+Teste e2e: Cypress
+CSS: Tailwind
+
+
 # Caju Front End Teste
 
 Esse é um teste para você demonstrar suas experiencia como front end, a aplicação basicamente se divide em duas telas, o `Dashboard` e um `Formulário`.
