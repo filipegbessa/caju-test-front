@@ -17,6 +17,8 @@ export default {
   coverageDirectory: 'coverage',
   collectCoverageFrom: [
     '**/components/**/*.{js,jsx,ts,tsx}',
+    '**/hooks/**/*.{js,jsx,ts,tsx}',
+    '**/pages/**/*.{js,jsx,ts,tsx}',
     '!**/*.stories.{js,jsx,ts,tsx}',
     '!**/node_modules/**',
     '!**/vendor/**',

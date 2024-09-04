@@ -24,7 +24,7 @@ export const Collumns: FC<CollumnsProps> = ({
   } = useCollumns(registrations);
 
   return (
-    <div className="grid grid-cols-3 gap-4 justify-center mt-4 min-h-80">
+    <div className="sm:grid grid-cols-3 gap-4 justify-center mt-4 min-h-80">
       {columnsData.map(({ title, status, registrations }) => (
         <CollumnItem
           title={title}

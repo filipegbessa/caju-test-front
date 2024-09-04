@@ -39,7 +39,9 @@ export const CollumnItem: FC<CollumnItemProps> = ({
       )}
 
       <h3 className={`m-4 ${style[status].title}`}>{title}</h3>
-      <div className="flex flex-col gap-2 px-4">{children}</div>
+      <div className="flex sm:flex-col gap-2 px-4 overflow-x-auto">
+        {children}
+      </div>
     </div>
   );
 };
