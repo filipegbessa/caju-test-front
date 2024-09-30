@@ -14,7 +14,7 @@ export const ProtectedRoute = ({ element }: ProtectedRouteProps) => {
     const checkAuth = async () => {
       const token = localStorage.getItem(localStorageEnum.TOKEN) || '';
       const authResult = await isAuthenticated(token);
-      setIsAuth(authResult);
+      setIsAuth(Boolean(authResult));
     };
 
     checkAuth();
