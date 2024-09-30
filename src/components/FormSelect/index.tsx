@@ -1,7 +1,7 @@
 import { FC, InputHTMLAttributes } from 'react';
 import { ErrorMessage, Field } from 'formik';
 
-interface FormSelectProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface FormSelectProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   options: { value: string; label: string }[];
 }
