@@ -21,7 +21,9 @@ export const fetchByCPF = createAsyncThunk(
 
     try {
       const data = await fetchRegisters();
-      return data?.filter((register) => register.cpf === cpf);
+      return data?.filter((register) => {
+        return register.cpf === cpf.replace(/[.\-]/g, '');
+      });
     } catch (error: any) {
       return rejectWithValue(error.message);
     }

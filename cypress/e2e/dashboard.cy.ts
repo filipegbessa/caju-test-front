@@ -1,24 +1,36 @@
 describe('DashboardPage', () => {
-  describe('deve renderizar o Dashboard', () => {
-    beforeEach(() => {
-      cy.visit('/');
+  describe('DashboardPage', () => {
+    Cypress.Commands.add('login', (email, password) => {
+      cy.visit('/login');
+      cy.get('[name="email"]').type(email);
+      cy.get('[name="password"]').type(password);
+      cy.get('button').contains('Entrar').click();
+
+      cy.url().should('eq', `${Cypress.config().baseUrl}login#/`);
     });
 
-    it('deve renderizar a barra de pesquisa', () => {
-      cy.get('[data-testid="SearchBar"]').should('be.visible');
-    });
+    describe('deve fazer login e validar o Dashboard', () => {
+      beforeEach(() => {
+        cy.login('test@caju.com', '123');
+      });
 
-    it('deve carregar as colunas com registros', () => {
-      cy.get('[data-testid="CollumnItem"]').should('have.length', 3);
-    });
+      it('deve renderizar a barra de pesquisa', () => {
+        cy.get('[data-testid="SearchBar"]').should('be.visible');
+      });
 
-    it('deve navegar para a tela de novo registro', () => {
-      cy.get('button').contains('Nova Admissão').click();
+      it('deve carregar as colunas com registros', () => {
+        cy.get('[data-testid="CollumnItem"]').should('have.length', 3);
+      });
+
+      it('deve navegar para a tela de novo registro', () => {
+        cy.get('button').contains('Nova Admissão').click();
+      });
     });
   });
 
   describe('deve Cadastrar novo registro', () => {
     beforeEach(() => {
+      cy.login('test@caju.com', '123');
       cy.visit('/#/new-user');
     });
 
@@ -30,7 +42,7 @@ describe('DashboardPage', () => {
     it('deve adicionar um novo registro', () => {
       cy.get('[name="cpf"]').type('05833011779');
       cy.get('[name="admissionDate"]').type('2000-02-28');
-      cy.get('[name="employeeName"]').type('Joaquim');
+      cy.get('[name="employeeName"]').type('Joaquim Ramiz');
       cy.get('[name="status"]').select('REVIEW');
       cy.get('[name="email"]').type('bqX9Z@example.com');
 
@@ -40,6 +52,7 @@ describe('DashboardPage', () => {
 
   describe('deve buscar pelo cpf do registro', () => {
     beforeEach(() => {
+      cy.login('test@caju.com', '123');
       cy.visit('/');
     });
 
@@ -54,6 +67,7 @@ describe('DashboardPage', () => {
 
   describe('deve mover o registro', () => {
     beforeEach(() => {
+      cy.login('test@caju.com', '123');
       cy.visit('/');
     });
 
