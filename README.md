@@ -7,7 +7,7 @@ Acesso: <br/>
 Email: test@caju.com <br/>
 Senha: 123
 
-Storybook: https://filipegbessa.github.io/caju-test-fron <br/>
+Storybook: https://filipegbessa.github.io/caju-test-front <br/>
 Cobertura de testes unitario: https://caju-test-front.vercel.app/coverage/index.html
 
 Tecnologias usadas: <br/>
